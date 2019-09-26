@@ -1,6 +1,6 @@
-Exercises: HTTP Protocol
+## Exercises: HTTP Protocol
 Problems for exercises and homework for the “Java Web Development Basics” course @ SoftUni. Submit your solutions on the course page of the current instance.
-⦁	Parsing HTTP Requests
+#Parsing HTTP Requests
 Implement a simple java application which parses HTTP Requests and returns an appropriate response based on the Request. 
 You will receive an input of several lines. The first input line will contain several URL paths, separated by spaces. 
 Example: /path /register /login /products/create /admin/users/all
