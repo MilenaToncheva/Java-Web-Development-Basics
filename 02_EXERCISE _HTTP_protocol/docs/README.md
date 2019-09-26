@@ -21,13 +21,13 @@ name=Yum&quantity=50&price=10
 
 You must implement a simple parser, which parses specific information, from the given request data, and returns a well-formatted HTTP Response in text format.
 You must process the Request Line.
-⦁	Check if the URL is present in the valid URLs
+⦁ Check if the URL is present in the valid URLs
 	You may be given any header, but you must only process the Date, Host, Content-Type headers.
-⦁	Attach the headers to the HTTP Response’s headers
-⦁	If any of the headers is missing you don’t need to do anything. 
-⦁	Skip the Authorization header for this
+⦁ Attach the headers to the HTTP Response’s headers
+⦁ If any of the headers is missing you don’t need to do anything. 
+⦁ Skip the Authorization header for this
 	You must also process the Request Body.
-⦁	Split the body parameters
+⦁ Split the body parameters
 In the end you should return a Response which contains the processed data from the request in an aggregated format.
 
 HTTP/1.1 200 OK
