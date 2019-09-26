@@ -1,5 +1,5 @@
 ## Exercises: HTTP Protocol
-Problems for exercises and homework for the “Java Web Development Basics” course @ SoftUni.
+Problems for exercises and homework for the “Java Web Development Basics” course @ SoftUni.<br/>
 Submit your solutions on the course page of the current instance.
 ### Parsing HTTP Requests
 Implement a simple java application which parses HTTP Requests and returns an appropriate response based on the Request. 
