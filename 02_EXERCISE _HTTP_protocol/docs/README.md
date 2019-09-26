@@ -62,19 +62,19 @@ If the Request’s Method is GET just print "Greetings {username}!" as Response 
 Example:<br/>
 <br/>
 | Input | Output |
-|---|---|
+| --- | --- |
 | /url /login /register | HTTP/1.1 200 OK |
 | POST /url HTTP/1.1 |      
 | Date: 17/01/2019 | Date: 17/01/2019 |      
 | Host: localhost:8000 |Host: localhost:8000|
-VzaG8=
-| |
-name=Yum&quantity=50&price=10 |
+| Authorization: Basic UGVzaG8= | Content-Type: application/xml |
+|   |  |
+| name=Yum&quantity=50&price=10 | Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.|
 
 
-Content-Type: application/xml
+<br/>
 
-Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.|
+
 | /url /login /register
 POST /url HTTP/1.1
 Date: 17/01/2019
