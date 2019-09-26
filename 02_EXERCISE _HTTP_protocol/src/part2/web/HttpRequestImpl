@@ -1,0 +1,110 @@
+package part2.web;
+
+import java.util.*;
+
+public class HttpRequestImpl implements HttpRequest {
+
+    private String method;
+    private String requestUrl;
+    private String protocol;
+    private Map<String, String> headers;
+    private Map<String, String> bodyParameters;
+
+
+    public HttpRequestImpl(String request) {
+
+        this.headers = new LinkedHashMap<>();
+        this.bodyParameters = new LinkedHashMap<>();
+        parseRequest(request);
+    }
+
+
+    @Override
+    public String getMethod() {
+        return this.method;
+    }
+
+    @Override
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    @Override
+    public String getRequestUrl() {
+        return this.requestUrl;
+    }
+
+    @Override
+    public void setRequestUrl(String requestUrl) {
+        this.requestUrl = requestUrl;
+    }
+
+    public String getProtocol() {
+        return this.protocol;
+    }
+
+    private void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
+
+    @Override
+    public Map<String, String> getHeaders() {
+        return this.headers;
+    }
+
+    @Override
+    public void addHeaders(String header, String value) {
+        this.headers.put(header, value);
+    }
+
+    @Override
+    public Map<String, String> getBodyParameters() {
+        return this.bodyParameters;
+    }
+
+    @Override
+    public void addBodyParameters(String parameter, String value) {
+        this.bodyParameters.put(parameter, value);
+    }
+
+    private void parseRequest(String request) {
+        List<String> requestLines = Arrays.asList(request.split(System.lineSeparator()));
+
+        if (requestLines.size() == 0) {
+            return;
+        }
+        List<String> params = Arrays.asList(requestLines.get(0).split("\\s+"));
+        this.setMethod(params.get(0));
+        this.setRequestUrl(params.get(1));
+        this.setProtocol(params.get(2));
+        parseHeaders(requestLines);
+        parseBody(requestLines);
+    }
+
+
+    private void parseHeaders(List<String> requestLines) {
+        requestLines
+                .stream()
+                .skip(1)
+                .filter(l -> l.contains(":"))
+                .map(l -> l.split(": "))
+                .forEach(kvp -> this.addHeaders(kvp[0], kvp[1]));
+
+    }
+
+    private void parseBody(List<String> requestLines) {
+        String bodyLine = requestLines.get(requestLines.size()-1);
+        if (!requestLines.get(requestLines.size()-2).equals("")) {
+            return;
+        }
+        Arrays.stream(bodyLine.split("&"))
+                .map(bodyParam -> bodyParam.split("="))
+                .forEach(bodyKvp -> this.addBodyParameters(bodyKvp[0], bodyKvp[1]));
+
+    }
+
+    @Override
+    public boolean isResource() {
+        return this.requestUrl.contains(".");
+    }
+}
