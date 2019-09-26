@@ -2,4 +2,4 @@
 Java Web Development Basic - September 2019 @ SoftUni
 
 02. EXERCISE HTTP protocol
-[02_EXERCISE _HTTP_protocol/docs/README.md]
+[./02_EXERCISE _HTTP_protocol/docs/README.md]
