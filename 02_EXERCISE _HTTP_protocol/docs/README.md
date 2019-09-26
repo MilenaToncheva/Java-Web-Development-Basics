@@ -18,7 +18,7 @@ Content-Type: application/xml<br/>
 Authorization: Basic UGVzaG8=<br/>
 <br/>
 name=Yum&quantity=50&price=10<br/>
-
+<br/>
 You must implement a simple parser, which parses specific information, from the given request data, and returns a well-formatted HTTP Response in text format.
 You must process the Request Line.
 * Check if the URL is present in the valid URLs
@@ -29,12 +29,12 @@ You must process the Request Line.
 	You must also process the Request Body.
 * Split the body parameters
 In the end you should return a Response which contains the processed data from the request in an aggregated format.
-
-HTTP/1.1 200 OK
-Date: 17/01/2019
-Host: localhost:8000
-Content-Type: application/xml
-
+<br/>
+HTTP/1.1 200 OK<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+Content-Type: application/xml<br/>
+<br/>
 Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.
 
 As you can see the Response’s Headers are the same as the Request’s Headers.
@@ -59,7 +59,8 @@ Then you must format the Request’s body parameters and place them in the Respo
 
 If the Request’s Method is GET just print "Greetings {username}!" as Response body.
 
-Example
+Example:<br/>
+<br/>
 | Input | Output |
 |---|---|
 | /url /login /register | HTTP/1.1 200 OK |
