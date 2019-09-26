@@ -50,10 +50,12 @@ Then you must format the Request’s body parameters and place them in the Respo
 <br/>
 **NOTE:** *If the URL is invalid (not present in valid URLs given on the first line), you should return an HTTP Response in the same format but this time with:*
 *	Status - 404 Not Found 
-*	Response Body – "The requested functionality was not found."<br/>
+*	Response Body – "The requested functionality was not found."
+<br/>
 **NOTE:** *If the Authorization header is missing, you should return an HTTP Response in the same format, but with:*
 *	Status - 401 Unauthorized<br/>
-*	Response Body – "You are not authorized to access the requested functionality."<br/>
+*	Response Body – "You are not authorized to access the requested functionality."
+<br/>
 **NOTE:** *If the Request’s Method is POST and there is NO body parameters, you should return an HTTP Response in the same format but with:
 *	Status – 400 Unauthorized<br/>
 *	Response Body – "There was an error with the requested functionality due to malformed request."
