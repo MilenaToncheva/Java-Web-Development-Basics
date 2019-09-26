@@ -1,0 +1,98 @@
+package part2;
+
+import part2.web.HttpRequest;
+import part2.web.HttpRequestImpl;
+import part2.web.HttpResponse;
+import part2.web.HttpResponseImpl;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Application {
+    private static BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
+    private static StringBuilder sb = new StringBuilder();
+
+    public static void main(String[] args) throws IOException {
+
+        List<String> validUrls = getValidUrls();
+        getRequestLines();
+
+        HttpRequest request = new HttpRequestImpl(sb.toString());
+        HttpResponse response = new HttpResponseImpl();
+
+        if (!validUrls.contains(request.getRequestUrl())) {
+            ((HttpResponseImpl) response).setProtocol(((HttpRequestImpl) request).getProtocol());
+            response.setStatusCode(404);
+            response.addHeader("Date", request.getHeaders().get("Date"));
+            response.addHeader("Host", request.getHeaders().get("Host"));
+
+            response.setContent("The requested functionality was not found.".getBytes());
+        } else if (!request.getHeaders().containsKey("Authorization")) {
+            ((HttpResponseImpl) response).setProtocol(((HttpRequestImpl) request).getProtocol());
+            response.setStatusCode(401);
+            response.addHeader("Date", request.getHeaders().get("Date"));
+            response.addHeader("Host", request.getHeaders().get("Host"));
+            response.setContent("You are not authorized to access the requested functionality.".getBytes());
+        }else if(request.getMethod().equals("POST")&&request.getBodyParameters().isEmpty()){
+            ((HttpResponseImpl) response).setProtocol(((HttpRequestImpl) request).getProtocol());
+            response.setStatusCode(400);
+            response.addHeader("Date", request.getHeaders().get("Date"));
+            response.addHeader("Host", request.getHeaders().get("Host"));
+            response.setContent("There was an error with the requested functionality due to malformed request.".getBytes());
+
+        }else{
+            ((HttpResponseImpl) response).setProtocol(((HttpRequestImpl) request).getProtocol());
+            response.setStatusCode(200);
+            request.getHeaders().forEach(response::addHeader);
+            String username=new String(Base64.getDecoder().decode(request.getHeaders().get("Authorization").split("\\s+")[1]));
+            String firstParam="";
+            String secondParam="";
+            String thirdParam="";
+            int count=0;
+            for (Map.Entry<String,String> entry : request.getBodyParameters().entrySet()) {
+                switch (count){
+
+                    case 0:
+                        firstParam=entry.getValue();
+                        break;
+                    case 1:
+                        secondParam=entry.getKey()+" - "+entry.getValue();
+                        break;
+                    case 2:
+                        thirdParam=entry.getKey()+" - "+entry.getValue();
+                        break;
+                }
+                count++;
+            }
+            String content=String.format("Greetings %s! You have successfully created %s with %s, %s.",
+                    username,
+                    firstParam,
+                    secondParam,
+                    thirdParam);
+            response.setContent(content.getBytes());
+        }
+        System.out.println(new String(response.getBytes()));
+
+
+    }
+
+    private static List<String> getValidUrls() throws IOException {
+        return Arrays.asList(br.readLine().split("\\s+"));
+    }
+
+    private static void getRequestLines() throws IOException {
+        String line ="";
+        while ((line = br.readLine()) != null && line.length() > 0) {
+            sb.append(line).append(System.lineSeparator());
+        }
+
+
+        if ((line = br.readLine()) != null ) {
+            sb.append(line).append(System.lineSeparator());
+        }
+
+    }
+}
