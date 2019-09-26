@@ -21,13 +21,13 @@ name=Yum&quantity=50&price=10
 
 You must implement a simple parser, which parses specific information, from the given request data, and returns a well-formatted HTTP Response in text format.
 You must process the Request Line.
-⦁ Check if the URL is present in the valid URLs
+* Check if the URL is present in the valid URLs
 	You may be given any header, but you must only process the Date, Host, Content-Type headers.
-⦁ Attach the headers to the HTTP Response’s headers
-⦁ If any of the headers is missing you don’t need to do anything. 
-⦁ Skip the Authorization header for this
+* Attach the headers to the HTTP Response’s headers
+* If any of the headers is missing you don’t need to do anything. 
+* Skip the Authorization header for this
 	You must also process the Request Body.
-⦁ Split the body parameters
+* Split the body parameters
 In the end you should return a Response which contains the processed data from the request in an aggregated format.
 
 HTTP/1.1 200 OK
@@ -47,28 +47,30 @@ Example: Authorization: Basic UGVzaG8= -> Pesho
 
 Then you must format the Request’s body parameters and place them in the Response content.
 
-NOTE: If the URL is invalid (not present in valid URLs given on the first line), you should return an HTTP Response in the same format but this time with:
-⦁	Status - 404 Not Found
-⦁	Response Body – "The requested functionality was not found."
-NOTE: If the Authorization header is missing, you should return an HTTP Response in the same format, but with:
-⦁	Status - 401 Unauthorized
-⦁	Response Body – "You are not authorized to access the requested functionality."
-NOTE: If the Request’s Method is POST and there is NO body parameters, you should return an HTTP Response in the same format but with:
-⦁	Status – 400 Unauthorized
-⦁	Response Body – "There was an error with the requested functionality due to malformed request."
+**NOTE:** *If the URL is invalid (not present in valid URLs given on the first line), you should return an HTTP Response in the same format but this time with:*
+*	Status - 404 Not Found
+*	Response Body – "The requested functionality was not found."
+**NOTE:** *If the Authorization header is missing, you should return an HTTP Response in the same format, but with:*
+*	Status - 401 Unauthorized
+*	Response Body – "You are not authorized to access the requested functionality."
+**NOTE:** *If the Request’s Method is POST and there is NO body parameters, you should return an HTTP Response in the same format but with:
+*	Status – 400 Unauthorized
+*	Response Body – "There was an error with the requested functionality due to malformed request."
+
 If the Request’s Method is GET just print "Greetings {username}!" as Response body.
+
 Example
 | Input | Output |
-| /url /login /register
-POST /url HTTP/1.1
-Date: 17/01/2019
-Host: localhost:8000
-Content-Type: application/xml
-Authorization: Basic UGVzaG8=
+|---|---|
+| /url /login /register | HTTP/1.1 200 OK |
+| POST /url HTTP/1.1 |      
+| Date: 17/01/2019 | Date: 17/01/2019 |      
+| Host: localhost:8000 |Host: localhost:8000|
+VzaG8=
+| |
+name=Yum&quantity=50&price=10 |
 
-name=Yum&quantity=50&price=10 |	HTTP/1.1 200 OK
-Date: 17/01/2019
-Host: localhost:8000
+
 Content-Type: application/xml
 
 Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.|
