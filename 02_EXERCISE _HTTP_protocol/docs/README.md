@@ -49,15 +49,15 @@ Example: Authorization: Basic UGVzaG8= -> Pesho
 Then you must format the Request’s body parameters and place them in the Response content.
 
 **NOTE:** *If the URL is invalid (not present in valid URLs given on the first line), you should return an HTTP Response in the same format but this time with:*
-*	Status - 404 Not Found
+*	Status - 404 Not Found <br/>
 *	Response Body – "The requested functionality was not found."
 **NOTE:** *If the Authorization header is missing, you should return an HTTP Response in the same format, but with:*
-*	Status - 401 Unauthorized
+*	Status - 401 Unauthorized<br/>
 *	Response Body – "You are not authorized to access the requested functionality."
 **NOTE:** *If the Request’s Method is POST and there is NO body parameters, you should return an HTTP Response in the same format but with:
-*	Status – 400 Unauthorized
+*	Status – 400 Unauthorized<br/>
 *	Response Body – "There was an error with the requested functionality due to malformed request."
-
+<br/>
 If the Request’s Method is GET just print "Greetings {username}!" as Response body.
 
 Example:<br/>
