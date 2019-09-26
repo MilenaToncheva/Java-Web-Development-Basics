@@ -1,7 +1,7 @@
 ## Exercises: HTTP Protocol
 Problems for exercises and homework for the “Java Web Development Basics” course @ SoftUni.
 Submit your solutions on the course page of the current instance.
-# Parsing HTTP Requests
+### Parsing HTTP Requests
 Implement a simple java application which parses HTTP Requests and returns an appropriate response based on the Request. 
 You will receive an input of several lines. The first input line will contain several URL paths, separated by spaces. 
 
@@ -107,10 +107,10 @@ Host: localhost:8000
 
 There was an error with the requested functionality due to malformed request. |
 
-## Create classes
+### Create classes
 Now, all the parsing logic from the previous task should be aggregated into 2 classes.
 
-### The HttpRequest:
+#### The HttpRequest:
  
 Create a class which implements this interface, and write the logic behind the methods. The class should have a method, a requestUrl, a collection of headers and a collection of bodyParameters.
 Remember, a request looks like this:
@@ -118,7 +118,7 @@ Remember, a request looks like this:
 You should receive the string in the constructor of the Request class, exactly as shown above, with every line, delimitered by “\r\n”. Everything should be parsed and formatted INSIDE the class.
 The isResource() method should check if the requestedUrl is a resource and not an actual route, and should return a boolean result.
 
- ### Thee HttpResponse:
+ #### Thee HttpResponse:
  
 Same as the HttpRequest above, you should implement this class, so that it corresponds to the behaviour defined by the interface.
 The getBytes() method should return the whole response (ResponseLine + Headers + Content) as byte array.
