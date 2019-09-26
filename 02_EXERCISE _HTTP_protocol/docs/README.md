@@ -9,15 +9,15 @@ Example: /path /register /login /products/create /admin/users/all
 
 You should store these paths, they are the valid URLs.
 The next several input lines will contain information about a simple HTTP Request.
-
-|Example:|
-|POST /url HTTP/1.1|
-|Date: 17/01/2019|
-|Host: localhost:8000|
-|Content-Type: application/xml|
-|Authorization: Basic UGVzaG8=|
-| |
-|name=Yum&quantity=50&price=10|
+<br/>
+Example:<br/>
+POST /url HTTP/1.1<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+Content-Type: application/xml<br/>
+Authorization: Basic UGVzaG8=<br/>
+<br/>
+name=Yum&quantity=50&price=10<br/>
 
 You must implement a simple parser, which parses specific information, from the given request data, and returns a well-formatted HTTP Response in text format.
 You must process the Request Line.
