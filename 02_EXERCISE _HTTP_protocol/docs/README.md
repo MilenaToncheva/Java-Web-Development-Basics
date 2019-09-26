@@ -36,11 +36,12 @@ Host: localhost:8000<br/>
 Content-Type: application/xml<br/>
 <br/>
 Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.
-
+<br/>
 As you can see the Response’s Headers are the same as the Request’s Headers.
 The Response Body is the only new thing. It is created in the following format.
+<br/>
 Greetings {username}! You have successfully created {firstRequestBodyParameterValue} with {secondRequestBodyParameterName} – {secondRequestBodyParameterValue}, {thirdRequestBodyParameterName} – {thirdRequestBodyParameterValue}.
-
+<br/>
 The username is extracted by decoding with Binary64Decoder the Authorization Header’s value (after the Basic credential key).
 
 Example: Authorization: Basic UGVzaG8= -> Pesho
