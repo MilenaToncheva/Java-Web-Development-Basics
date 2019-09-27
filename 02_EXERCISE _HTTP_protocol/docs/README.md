@@ -64,54 +64,55 @@ If the Request’s Method is GET just print "Greetings {username}!" as Response 
 
 Example:<br/>
 <br/>
+
 | Input | Output |
-| --- | --- |
-| /url /login /register | HTTP/1.1 200 OK |
-| POST /url HTTP/1.1 |      
-| Date: 17/01/2019 | Date: 17/01/2019 |      
-| Host: localhost:8000 |Host: localhost:8000|
-| Authorization: Basic UGVzaG8= | Content-Type: application/xml |
-|   |  |
-| name=Yum&quantity=50&price=10 | Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.|
-
-
+| /url /login /register <br/>
+POST /url HTTP/1.1<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+Content-Type: application/xml<br/>
+Authorization: Basic UGVzaG8=<br/>
 <br/>
+name=Yum&quantity=50&price=10 |
 
+HTTP/1.1 200 OK
+Date: 17/01/2019
+Host: localhost:8000
+Content-Type: application/xml
 
-| /url /login /register
+Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.
+/url /login /register
 POST /url HTTP/1.1
 Date: 17/01/2019
 Host: localhost:8000
 
-name=Yum&quantity=50&price=10| HTTP/1.1 401 Unauthorized
+name=Yum&quantity=50&price=10	HTTP/1.1 401 Unauthorized
 Date: 17/01/2019
 Host: localhost:8000
 
-You are not authorized to access the requested functionality. |
-
-| /create /update 
+You are not authorized to access the requested functionality.
+/create /update 
 POST /url HTTP/1.1
-Date: 17/01/2019
 Host: localhost:8000
 Authorization: Basic UGVzaG8=
 
-name=Yum&quantity=50&price=10 |
-
-HTTP/1.1 404 Not Found
+name=Yum&quantity=50&price=10	HTTP/1.1 404 Not Found
 Date: 17/01/2019
 Host: localhost:8000
 
-The requested functionality was not found.|
-| /url /update 
+The requested functionality was not found.
+/url /update 
 POST /url HTTP/1.1
-Date: 17/01/2019
 Host: localhost:8000
-Authorization: Basic UGVzaG8= |
+Authorization: Basic UGVzaG8=
+
 	HTTP/1.1 400 Bad Request
 Date: 17/01/2019
 Host: localhost:8000
 
-There was an error with the requested functionality due to malformed request. |
+There was an error with the requested functionality due to malformed request.
+
+
 
 ### Create classes
 Now, all the parsing logic from the previous task should be aggregated into 2 classes.
