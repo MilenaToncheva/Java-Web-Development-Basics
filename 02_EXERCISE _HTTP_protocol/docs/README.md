@@ -65,66 +65,66 @@ If the Request’s Method is GET just print "Greetings {username}!" as Response 
 ### Example:<br/>
 
 #### Input 1:
-/url /login /register
-POST /url HTTP/1.1
-Date: 17/01/2019
-Host: localhost:8000
-Content-Type: application/xml
-Authorization: Basic UGVzaG8=
-
-name=Yum&quantity=50&price=10	
+/url /login /register<br/>
+POST /url HTTP/1.1<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+Content-Type: application/xml<br/>
+Authorization: Basic UGVzaG8=<br/>
+<br/>
+name=Yum&quantity=50&price=10	<br/>
+<br/>
 #### Output 1:
-HTTP/1.1 200 OK
-Date: 17/01/2019
-Host: localhost:8000
-Content-Type: application/xml
-
-Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.
-
+HTTP/1.1 200 OK<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+Content-Type: application/xml<br/>
+<br/>
+Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.<br/>
+<br/>
 #### Input 2:
-/url /login /register
-POST /url HTTP/1.1
-Date: 17/01/2019
-Host: localhost:8000
-
-name=Yum&quantity=50&price=10	
-
+/url /login /register<br/>
+POST /url HTTP/1.1<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+<br/>
+name=Yum&quantity=50&price=10	<br/>
+<br/>
 #### Output 2:
-HTTP/1.1 401 Unauthorized
-Date: 17/01/2019
-Host: localhost:8000
-
-You are not authorized to access the requested functionality.
-
+HTTP/1.1 401 Unauthorized<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+<br/>
+You are not authorized to access the requested functionality.<br/>
+<br/>
 #### Input 3:
-/create /update 
-POST /url HTTP/1.1
-Host: localhost:8000
-Authorization: Basic UGVzaG8=
-
-name=Yum&quantity=50&price=10	
-
+/create /update <br/>
+POST /url HTTP/1.1<br/>
+Host: localhost:8000<br/>
+Authorization: Basic UGVzaG8=<br/>
+<br/>
+name=Yum&quantity=50&price=10	<br/>
+<br/>
 #### Output 3:
-HTTP/1.1 404 Not Found
-Date: 17/01/2019
-Host: localhost:8000
-
-The requested functionality was not found.
-
+HTTP/1.1 404 Not Found<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+<br/>
+The requested functionality was not found.<br/>
+<br/>
 #### Input 4:
-/url /update 
-POST /url HTTP/1.1
-Host: localhost:8000
-Authorization: Basic UGVzaG8=
-
+/url /update <br/>
+POST /url HTTP/1.1<br/>
+Host: localhost:8000<br/>
+Authorization: Basic UGVzaG8=<br/>
+<br/>
 #### Output 4:
-	HTTP/1.1 400 Bad Request
-Date: 17/01/2019
-Host: localhost:8000
-
-There was an error with the requested functionality due to malformed request.
-
-
+HTTP/1.1 400 Bad Request<br/>
+Date: 17/01/2019<br/>
+Host: localhost:8000<br/>
+<br/>
+There was an error with the requested functionality due to malformed request.<br/>
+<br/><br/>
 ### Create classes
 Now, all the parsing logic from the previous task should be aggregated into 2 classes.
 
