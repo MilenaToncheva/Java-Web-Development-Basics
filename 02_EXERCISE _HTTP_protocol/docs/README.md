@@ -65,55 +65,36 @@ If the Request’s Method is GET just print "Greetings {username}!" as Response 
 Example:<br/>
 <br/>
 
-| Input | Output |
-|---|---|
-| /url /login /register 
-POST /url HTTP/1.1
-Date: 17/01/2019
-Host: localhost:8000
-Content-Type: application/xml
-Authorization: Basic UGVzaG8=
-<br/>
-name=Yum&quantity=50&price=10 |
-HTTP/1.1 200 OK<br/>
-Date: 17/01/2019<br/>
-Host: localhost:8000<br/>
-Content-Type: application/xml<br/>
-<clrf>
-Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.|
-	|---|---|
-|/url /login /register
-POST /url HTTP/1.1
-Date: 17/01/2019
-Host: localhost:8000
-<crlf>
-name=Yum&quantity=50&price=10|	HTTP/1.1 401 Unauthorized
-Date: 17/01/2019
-Host: localhost:8000
-<crlf>
-You are not authorized to access the requested functionality.|
-/create /update 
-POST /url HTTP/1.1
-Host: localhost:8000
-Authorization: Basic UGVzaG8=
-
-name=Yum&quantity=50&price=10	HTTP/1.1 404 Not Found
-Date: 17/01/2019
-Host: localhost:8000
-
-The requested functionality was not found.
-/url /update 
-POST /url HTTP/1.1
-Host: localhost:8000
-Authorization: Basic UGVzaG8=
-
-	HTTP/1.1 400 Bad Request
-Date: 17/01/2019
-Host: localhost:8000
-
-There was an error with the requested functionality due to malformed request.
-
-
+**Input**|**Output**
+-----|-----
+/url /login /register POST /url HTTP/1.1|HTTP/1.1 200 OK
+Date: 17/01/2019|Date: 17/01/2019
+Host: localhost:8000|Host: localhost:8000
+Content-Type: application/xml|Content-Type: application/xml
+Authorization: Basic UGVzaG8=| 
+ | 
+name=Yum&quantity=50&price=10|Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.
+ | 
+ | 
+/url /login /register POST /url HTTP/1.1|HTTP/1.1 401 Unauthorized
+Date: 17/01/2019|Date: 17/01/2019
+Host: localhost:8000|Host: localhost:8000
+ | 
+name=Yum&quantity=50&price=10|You are not authorized to access the requested functionality.
+ | 
+ | 
+/create /update  POST /url HTTP/1.1|HTTP/1.1 404 Not Found
+Host: localhost:8000|Date: 17/01/2019
+Authorization: Basic UGVzaG8=|Host: localhost:8000
+ | 
+name=Yum&quantity=50&price=10|The requested functionality was not found.
+ | 
+ | 
+/url /update  POST /url HTTP/1.1|HTTP/1.1 400 Bad Request
+Host: localhost:8000|Date: 17/01/2019
+Authorization: Basic UGVzaG8=|Host: localhost:8000
+ | 
+ |There was an error with the requested functionality due to malformed request.
 
 ### Create classes
 Now, all the parsing logic from the previous task should be aggregated into 2 classes.
