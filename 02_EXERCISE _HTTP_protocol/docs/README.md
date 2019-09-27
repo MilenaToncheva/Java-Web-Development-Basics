@@ -62,9 +62,9 @@ Then you must format the Request’s body parameters and place them in the Respo
 <br/>
 If the Request’s Method is GET just print "Greetings {username}!" as Response body.
 
-###Example:<br/>
+### Example:<br/>
 
-#### Input1:
+#### Input 1:
 /url /login /register
 POST /url HTTP/1.1
 Date: 17/01/2019
@@ -73,7 +73,7 @@ Content-Type: application/xml
 Authorization: Basic UGVzaG8=
 
 name=Yum&quantity=50&price=10	
-#### Output1:
+#### Output 1:
 HTTP/1.1 200 OK
 Date: 17/01/2019
 Host: localhost:8000
@@ -81,7 +81,7 @@ Content-Type: application/xml
 
 Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.
 
-#### Input2:
+#### Input 2:
 /url /login /register
 POST /url HTTP/1.1
 Date: 17/01/2019
@@ -89,14 +89,14 @@ Host: localhost:8000
 
 name=Yum&quantity=50&price=10	
 
-#### Output2:
+#### Output 2:
 HTTP/1.1 401 Unauthorized
 Date: 17/01/2019
 Host: localhost:8000
 
 You are not authorized to access the requested functionality.
 
-#### Input3:
+#### Input 3:
 /create /update 
 POST /url HTTP/1.1
 Host: localhost:8000
@@ -104,20 +104,20 @@ Authorization: Basic UGVzaG8=
 
 name=Yum&quantity=50&price=10	
 
-#### Output3:
+#### Output 3:
 HTTP/1.1 404 Not Found
 Date: 17/01/2019
 Host: localhost:8000
 
 The requested functionality was not found.
 
-#### Input4:
+#### Input 4:
 /url /update 
 POST /url HTTP/1.1
 Host: localhost:8000
 Authorization: Basic UGVzaG8=
 
-#### Output4:
+#### Output 4:
 	HTTP/1.1 400 Bad Request
 Date: 17/01/2019
 Host: localhost:8000
