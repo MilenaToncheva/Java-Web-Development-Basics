@@ -67,30 +67,31 @@ Example:<br/>
 
 | Input | Output |
 |---|---|
-| /url /login /register <br/>
-POST /url HTTP/1.1<br/>
-Date: 17/01/2019<br/>
-Host: localhost:8000<br/>
-Content-Type: application/xml<br/>
-Authorization: Basic UGVzaG8=<br/>
+| /url /login /register 
+POST /url HTTP/1.1
+Date: 17/01/2019
+Host: localhost:8000
+Content-Type: application/xml
+Authorization: Basic UGVzaG8=
 <br/>
 name=Yum&quantity=50&price=10 |
 HTTP/1.1 200 OK<br/>
 Date: 17/01/2019<br/>
 Host: localhost:8000<br/>
 Content-Type: application/xml<br/>
-<br/>
-Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.|<br/>
-/url /login /register
+<clrf>
+Greetings Pesho! You have successfully created Yum with quantity – 50, price – 10.|
+	|---|---|
+|/url /login /register
 POST /url HTTP/1.1
 Date: 17/01/2019
 Host: localhost:8000
-
-name=Yum&quantity=50&price=10	HTTP/1.1 401 Unauthorized
+<crlf>
+name=Yum&quantity=50&price=10|	HTTP/1.1 401 Unauthorized
 Date: 17/01/2019
 Host: localhost:8000
-
-You are not authorized to access the requested functionality.
+<crlf>
+You are not authorized to access the requested functionality.|
 /create /update 
 POST /url HTTP/1.1
 Host: localhost:8000
