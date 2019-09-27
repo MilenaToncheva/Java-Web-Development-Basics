@@ -65,7 +65,8 @@ If the Request’s Method is GET just print "Greetings {username}!" as Response 
 Example:<br/>
 <br/>
 
-| Input | Output |<br/>
+| Input | Output |
+|---|---|
 | /url /login /register <br/>
 POST /url HTTP/1.1<br/>
 Date: 17/01/2019<br/>
