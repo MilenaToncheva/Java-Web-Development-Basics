@@ -8,13 +8,13 @@ Like it was said above, create a new project, and create the following folders a
  
 As you see we’ve put our server files in a folder corresponding to the Server’s name – javache. Now let’s look at the classes.
 The StartUp class should be the holder of the main() method, where the Server class should be instantiated and ran.
-⦁	Server class
+*	Server class
 The Server class is the connection controller, it oversees the process with the socket connections. It should hold a ServerSocket and a port. The Server should have a run() method, which should instantiate the ServerSocket and it should create a while loop which listens for connections. Upon connection, the Server should send the client socket to a ConnectionHandler, which should take it from there.
 Note: The Server should be asynchronous, so you’ll have to set some timeout on the Server and Client sockets. You should also make the ConnectionHandler extend the Thread class, so that you can @Override the run() method, and make a FutureTask, to make it asynchronous.
  
 The SoTimeout is the lifespan of the socket connection. It won’t be good if the connection stays alive for too long, because both sides can send anything to the other, which would cause security issues.
 When the lifespan ends, naturally, the Server will try to accept a new Socket, which may not be existent at that moment. That will cause an exception, which must be handled. There is really no way to handle this better, than just printing a timeout detection message, and counting timeouts for example, that’s why we have that nasty try/catch.
-⦁	ConnectionHandler
+*	ConnectionHandler
 The ConnectionHandler class is the one that processes the client’s connection. It is the highest-level handler we will have in our simple HTTP server, for now … 
 The ConnectionHandler should have a RequestHandler, which should be passed through the constructor.
 The ConnectionHandler should also hold a Socket, which is the clientSocket, which should also be passed through the constructor.
@@ -33,7 +33,7 @@ The run() method should extract the Request’s content through the InputStream,
 Now let’s implement it by the logic, specified above:
  
 As you see, everything is almost ready, we almost have a working server, and everything is tip top. But what are these Reader and Writer classes? Well, let’s check them now.
-⦁	IO Package
+*	IO Package
 The IO Package will hold 2 static classes – The Reader and The Writer. These 2 will be utility classes, which we will use to extract and send data through.
 Reader
 Let’s start with the Reader class. The Reader class should have a single method – readAllLines(), which should accept an InputStream. The method should instantiate a BufferedReader, and it should read all characters, from the InputStream. Important! All characters!
@@ -43,11 +43,11 @@ The class should be final and the constructor should be private! The readAllLine
 
 
 
-Writer
+## Writer
 The other one is the Writer class. The Writer class should also be final and its constructor private. It should hold a single static method – writeBytes(). The method should accept a byte[] array, and an OutputStream, and should print the byteData, by instantiating a DataOutputStream.
  
 And we are done with this package! And with the examples. From now on, its up to you to build the other things. You’ll be given instructions though.
-⦁	HTTP Package
+*	HTTP Package
 The http package is probably the first one you should start with. You should implement 2 classes here, one for the HttpRequest and one for the HttpResponse. We are no longer going to keep these 2 things as flying strings. They will be objects. Here are their interfaces and their explanations:
 HttpRequest
 The HttpRequest:
@@ -63,23 +63,23 @@ And the HttpResponse:
  
 Same as the HttpRequest above, you should implement this class, so that it corresponds to the behaviour defined by the interface.
 The getBytes() method should return the whole response (ResponseLine + Headers + Content) as byte array.
-⦁	WebConstants class
+*	WebConstants class
 This class should hold all shared constants, which will be used overall by the whole Server. Extract all magical values into this class, and by doing that you will perform the most miniature refactoring of the code you can.
-⦁	Resources Folder
+*	Resources Folder
 This folder holds 2 subfolders – assets and pages. Download several images, css files, text files, etc... and put them in the assets folder. That’s where all static files reside.
 Create some .html files, which use some of the assets. Put those .html files in the pages folder.
-⦁	RequestHandler
+*	RequestHandler
 The time has come for the final class. Implement the RequestHandler class. 
 The RequestHandler class should have a single public method – handleRequest(), which accepts a single string – the requestContent. The RequestHandler should instantiate an HttpRequest with that string.
 The RequestHandler should hold the whole logic (for now, until we come up with a wiser architecture). In other words, hit all your logic – resource loading, page loading etc... in this class.
 Despite the fact that we are making a God Object, by design, try to keep code quality to the maximum. If you can, divide the logic into different handlers.
-⦁	Full Implementation
+*	Full Implementation
 Implement your Server so that it works perfectly. Try hosting your web pages. 
 The server should host .html files from the pages folder, to specific routes.
 “localhost:8000/index” – should receive index.html as Response.
 The server should also host resources from the assets folder.
 “localhost:8000/server.png” – should receive server.png as Response.
-⦁	This is not even my Final Form!
+*	This is not even my Final Form!
 This is, by no means, the final server which you will use. This is a very simple http server, which processes HTTP Requests, and returns HTTP Responses, which may contain files. Its purpose is to exercise your skills in handling HTTP connections between Client and Server. There are a lot of things that can be refactored, changed, fixed... And they will be! 
 Try to identify the bugs, and if you can, fix them. Most of the times, locating the bugs is harder than fixing them, because, after all, at web level the architecture gets quite complex. A very little seemingly insignificant bug, may prove to be quite the challenge.
  
