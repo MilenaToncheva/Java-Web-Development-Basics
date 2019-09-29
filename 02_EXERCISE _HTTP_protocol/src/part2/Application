@@ -36,17 +36,25 @@ public class Application {
             response.addHeader("Date", request.getHeaders().get("Date"));
             response.addHeader("Host", request.getHeaders().get("Host"));
             response.setContent("You are not authorized to access the requested functionality.".getBytes());
-        }else if(request.getMethod().equals("POST")&&request.getBodyParameters().isEmpty()){
+        } else if (request.getMethod().equals("POST") && request.getBodyParameters().isEmpty()) {
             ((HttpResponseImpl) response).setProtocol(((HttpRequestImpl) request).getProtocol());
             response.setStatusCode(400);
             response.addHeader("Date", request.getHeaders().get("Date"));
             response.addHeader("Host", request.getHeaders().get("Host"));
             response.setContent("There was an error with the requested functionality due to malformed request.".getBytes());
 
-        }else{
+        } else if(request.getMethod().equals("GET")){
+
             ((HttpResponseImpl) response).setProtocol(((HttpRequestImpl) request).getProtocol());
             response.setStatusCode(200);
             request.getHeaders().forEach(response::addHeader);
+
+            response.setContent(("Greetings "+new String(Base64.getDecoder().decode(request.getHeaders().get("Authorization").split("\\s+")[1] ))+"!").getBytes());
+
+    }else {
+            ((HttpResponseImpl) response).setProtocol(((HttpRequestImpl) request).getProtocol());
+            response.setStatusCode(200);
+            request.getHeaders().forEach((header, value) -> response.addHeader(header, value));
             String username=new String(Base64.getDecoder().decode(request.getHeaders().get("Authorization").split("\\s+")[1]));
             String firstParam="";
             String secondParam="";
