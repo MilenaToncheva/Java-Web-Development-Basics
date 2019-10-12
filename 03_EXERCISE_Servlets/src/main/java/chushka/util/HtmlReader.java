@@ -9,7 +9,7 @@ public class HtmlReader {
 
         StringBuilder htmlFileContent=new StringBuilder();
         String line;
-        while((line=br.readLine())!=null&&line.length()>0){
+        while((line=br.readLine())!=null){
             htmlFileContent.append(line).append(System.lineSeparator());
         }
         return htmlFileContent.toString().trim();
