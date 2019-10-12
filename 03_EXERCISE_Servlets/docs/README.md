@@ -6,13 +6,13 @@ We will implement a simple application, only with Servlets, exploring the most i
 Chushka Application
 Chishka is an application in which you create products, with several properties. It has many versions, and you will most probably see it several times.
 You will have to create a simple multi-Servlet application which has several pages and 1 object entity.
-⦁	Data
+*	Data
 This is the data layer of the application. There is 1 data object for you to implement.
 So let’s create our Product. The Product is a data object which stores data about an abstract product. You will see later what it will be used for.
 First implement a class Product – which has these properties:
-⦁	Name – a String.
-⦁	Description – a String.
-⦁	Type – can be one of the following values – (“Food”, “Domestic”, “Health”, “Cosmetic”, “Other”)  
+* Name – a String.
+*	Description – a String.
+*	Type – can be one of the following values – (“Food”, “Domestic”, “Health”, “Cosmetic”, “Other”)  
 Products
 Field	1	2	3
 Name	Chushkopek	Injektoplqktor	Plumbus
