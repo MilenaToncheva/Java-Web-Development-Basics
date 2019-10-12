@@ -16,7 +16,8 @@ import java.io.IOException;
 
 @WebServlet("/products/details")
 public class ProductDetailsServlet extends HttpServlet {
-    private static final String DETAILS_PRODUCT_HTML_FILE_PATH = "C:\\Users\\anato\\OneDrive\\Documents\\SOFTUNI\\Java\\JavaWebBasics\\JavaWebDevelopmentBasics-January2019\\SERVLETS-exercise\\src\\main\\resources\\views\\details-product.html";
+    private static final String DETAILS_PRODUCT_HTML_FILE_PATH = "C:\\Users\\milena\\OneDrive\\Documents\\SOFTUNI\\Java\\JavaWebBasics"+
+        "\\SERVLETS-exercise\\src\\main\\resources\\views\\details-product.html";
     private final ProductService productService;
     private final ModelMapper modelMapper;
     private final HtmlReader htmlReader;
