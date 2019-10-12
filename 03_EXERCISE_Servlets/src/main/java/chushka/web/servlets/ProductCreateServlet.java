@@ -19,7 +19,8 @@ import java.util.Arrays;
 @WebServlet("/products/create")
 public class ProductCreateServlet extends HttpServlet {
 
-    private static final String CREATE_PRODUCT_HTML_FILE_PATH = "C:\\Users\\anato\\OneDrive\\Documents\\SOFTUNI\\Java\\JavaWebBasics\\JavaWebDevelopmentBasics-January2019\\SERVLETS-exercise\\src\\main\\resources\\views\\create-product.html";
+    private static final String CREATE_PRODUCT_HTML_FILE_PATH = "C:\\Users\\milena\\OneDrive\\Documents\\SOFTUNI\\Java\\JavaWebBasics"+
+        "\\SERVLETS-exercise\\src\\main\\resources\\views\\create-product.html";
     private final HtmlReader htmlReader;
     private final ProductService productService;
 
@@ -31,7 +32,7 @@ public class ProductCreateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String fileContent = this.htmlReader.readHtmlFile(CREATE_PRODUCT_HTML_FILE_PATH).replace("{{typeOptions}}", this.formatTypeOptions());
+        String fileContent = this.htmlReader.readHtmlFile(CREATE_PRODUCT_HTML_FILE_PATH).replace("{{typeOptions}}",this.formatTypeOptions());
         resp.getWriter().println(fileContent);
     }
 
