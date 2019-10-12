@@ -25,32 +25,38 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public Product findById(String id) {
         this.entityManager.getTransaction().begin();
+        
         Product product =  this.entityManager
                 .createQuery("SELECT p FROM Product p WHERE p.id =:id",Product.class)
                 .setParameter("id", id)
                 .getSingleResult();
+        
         this.entityManager.getTransaction().commit();
-        System.out.println();
+        
         return product;
     }
 
     @Override
     public List<Product> findAll() {
         this.entityManager.getTransaction().begin();
+        
         List<Product>products=this.entityManager.createQuery("SELECT p FROM Product p",Product.class).getResultList();
 
         this.entityManager.getTransaction().commit();
+        
         return products;
     }
 
     @Override
     public Product findByName(String name) {
         this.entityManager.getTransaction().begin();
+        
         Product product=this.entityManager.createQuery("SELECT p FROM Product p WHERE p.name =:productName",Product.class)
                 .setParameter("productName",name)
                 .getSingleResult();
 
         this.entityManager.getTransaction().commit();
+        
         return product;
     }
 }
