@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 
 @WebServlet("/")
 public class IndexServlet extends HttpServlet {
-    private static final String HTML_FILE_PATH = "C:\\Users\\anato\\OneDrive\\Documents\\SOFTUNI\\Java\\JavaWebBasics" +
-            "\\JavaWebDevelopmentBasics-January2019\\SERVLETS-exercise\\src\\main\\resources\\views\\Index.html";
+    private static final String HTML_FILE_PATH = "C:\\Users\\milena\\OneDrive\\Documents\\SOFTUNI\\Java\\JavaWebBasics"+
+        "\\SERVLETS-exercise\\src\\main\\resources\\views\\Index.html";
 
     private final ProductService productService;
     private final HtmlReader htmlReader;
@@ -48,7 +48,7 @@ public class IndexServlet extends HttpServlet {
                 .collect(Collectors.toList());
         StringBuilder allProductsList = new StringBuilder();
         allProducts.forEach(p -> allProductsList.append(String.format("<li><a href=\"/products/details?name=%s\">%s</a></li>", p.getName(), p.getName())).append(System.lineSeparator()));
-        System.out.println();
+        
         return allProductsList.toString().trim();
     }
 }
