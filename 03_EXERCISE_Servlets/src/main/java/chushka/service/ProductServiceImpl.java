@@ -37,7 +37,7 @@ public class ProductServiceImpl implements ProductService {
                     return productServiceModel;
                 })
                 .collect(Collectors.toList());
-        System.out.println();
+        
         return result;
     }
 
