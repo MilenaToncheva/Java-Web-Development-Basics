@@ -1,4 +1,4 @@
-# Exercises: Java EE: JavaServer Pages
+## Exercises: Java EE: JavaServer Pages
 
 Problems for exercises and homework for the “Java Web Development Basics” course @ SoftUni. Submit your solutions on the course page of the current instance.
 We will implement a simple application, only with Servlets and JSP, exploring the most interesting exploits of the Servlet API nad JavaServer pages.
