@@ -28,6 +28,7 @@ This is the page where you create your tubes. It must contain input field for ti
  
 details-tube.jsp
 
+
 This is the page which renders full data about the selected Tube. The selected Tube should be extracted from the database, using the title from the query parameters. If tube does not exist – write an apropriate message.
  
 all-tubes.jsp
