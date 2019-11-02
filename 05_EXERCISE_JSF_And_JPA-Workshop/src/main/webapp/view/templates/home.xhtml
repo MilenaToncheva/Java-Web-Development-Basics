@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="templates/user-baseLayout.xhtml">
+    <ui:define name="main-content">
+        <main>
+            <hr class="my-3"/>
+            <div class="text-center mb-3">
+                <h4 class="text-info">Welcome, #{session.getAttribute("username")}</h4>
+            </div>
+            <hr class="my-3"/>
+            <div class="container">
+                <ui:repeat value="#{homeBean.jobApplicationViewModels}" var="jobViewModel" varStatus="status">
+                <h:outputText value="&lt;div class=&quot;row mb-4 d-flex justify-content-around&quot;&gt;"
+                              escape="false" rendered="#{status.index % 3 == 0}"/>
+                    <div class="col-md-3 d-flex flex-column text-center">
+                       <h:graphicImage library="img" name="#{jobViewModel.sector.name().toLowerCase()}.jpg" class="img-thumbnail" width="300" height="300"/>
+                        <h5 class="text-center">#{jobViewModel.profession}</h5>
+                        <h:link value="Details" outcome="job-details?id=#{jobViewModel.id}"  class="btn btn-info"/>
+                        <h:link value="Delete" outcome="delete-job?id=#{jobViewModel.id}"  class="btn btn-danger"/>
+                    </div>
+                <h:outputText value="&lt;/div&gt;" escape="false" rendered="#{status.index % 3 == 2}"/>
+                </ui:repeat>
+            </div>
+            <hr class="my-3"/>
+        </main>
+    </ui:define>
+</ui:composition>
+</html>
