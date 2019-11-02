@@ -7,6 +7,8 @@ Java Web Development Basic - September 2019 @ SoftUni
 ## 03. EXERCISE Servlets
 [Task Requirements](././03_EXERCISE_Servlets/docs/README.md)
 
-## 04. Exercise JavaServer Pages and Filters
+## 04. EXERCISE JavaServer Pages and Filters
 [Task Requirements](././04_EXERCISE_Jsp_and_Filters/docs/README.md)
 
+## 05. EXERCISE JavaServer Faces and JPA
+[Task Requirements](././05_EXERCISE_Jsf_and_JPA/docs/README.md)
