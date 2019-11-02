@@ -11,4 +11,4 @@ Java Web Development Basic - September 2019 @ SoftUni
 [Task Requirements](././04_EXERCISE_Jsp_and_Filters/docs/README.md)
 
 ## 05. EXERCISE JavaServer Faces and JPA
-[Task Requirements](././05_EXERCISE_Jsf_and_JPA/docs/README.md)
+[Task Requirements](././05_EXERCISE_JSF_And_JPA-Workshop/docs/README.md)
