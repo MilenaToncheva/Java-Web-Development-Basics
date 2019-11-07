@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="templates/guest-baseLayout.xhtml">
+    <ui:define name="main-content">
+        <main>
+            <h1 class="text-center">Login</h1>
+            <hr class="hr-3"/>
+            <h:form class="mx-auto w-15">
+                <div class="form-group">
+                    <div class="label-holder text-white d-flex justify-content-center">
+                        <h:outputLabel value="Username" for="username" class="h3 mb-2"/>
+                    </div>
+                    <h:inputText value="#{userLoginBean.userLoginBindingModel.username}" class="form-control" id="username" name="username"/>
+                </div>
+                <div class="form-group">
+                    <div class="label-holder text-white d-flex justify-content-center">
+                        <h:outputLabel value="Password" for="password" class="h3 mb-2"/>
+                    </div>
+                    <h:inputText value="#{userLoginBean.userLoginBindingModel.password}" class="form-control" id="password" name="password"/>
+                </div>
+                <div class="button-holder d-flex justify-content-center">
+                    <h:commandButton class="btn btn-info text-white mb-3" type="submit" value="Login" action="#{userLoginBean.login}"/>
+                </div>
+            </h:form>
+        </main>
+    </ui:define>
+</ui:composition>
+</html>
